@@ -14,7 +14,16 @@ function rollHand(): Hand {
     ]
 }
 
+function reRoll(hand: Hand, indices: number[]): Hand {
+    const next: Hand = [...hand]
+
+    for (const index of indices) {
+        next[index] = rollDie()
+    }
+    return next
+}
+
 // console.log(rollHand())
 // console.log([...rollHand()].sort((a, b) => a - b))
 
-export { rollDie, rollHand }
+export { rollDie, rollHand, reRoll }
